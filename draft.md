@@ -12,6 +12,10 @@ i made this rough draft to act as a rough outline of the ideas that i had/have n
 
 this is a draft. i just want my ideas out of my brain and in a document. the (maybes) will be expanded and fleshed out later once we understand/think more.
 
+- why you talk about using ipv4? isn't it obsolete?
+
+ipv4 is only used here as an example, we could use ipv6, or replace those completely with our own "ipv5" which is just ipv4 but instead of each part being limited up to 255, they can go up 999. (or something)
+
 - what is/are the telarum protocol(s)?
 
 `telarum://` is a protocol with two parts: you can send a request to a server with headers, and you can receive a response with headers and a file. the response is sent in several chunks, the first chunk contains the headers, an index header, and a part of the file - the rest of the chunks only contains indexes and parts of the file.
