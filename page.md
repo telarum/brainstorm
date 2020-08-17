@@ -16,7 +16,7 @@ there should be no elements in the traditional sense, there should be a set amou
 
 - what do you mean no unique styles?
 
-oh yeah, where page replace html, there is nothing to replace css, and definitely nothing to replace js &mdash; read on.
+oh yeah, where page replaces html, there is nothing to replace css, and definitely nothing to replace js &mdash; read on.
 
 ## page over html
 
@@ -176,15 +176,6 @@ ii. item two
 
 // tells the browser that it should put image.png here
 ![image](telarum://id.name/image.png)
-```
-
-### layout
-```markdown
-// horizontal line separator
-// three (or more) dashes or underscores on their own line
----
-___
-
 
 // term definitions
 // ie. rarely used <dl> element in html
@@ -202,4 +193,12 @@ independent
 | ----- | ----- |
 | row 2 | col 2 |
 | row 3 | col 2 |
+```
+
+### layout
+```markdown
+// horizontal line separator
+// three (or more) dashes or underscores on their own line
+---
+___
 ```
