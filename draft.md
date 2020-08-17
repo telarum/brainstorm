@@ -6,7 +6,7 @@ author: zvava
 
 - what is this draft for?
 
-i made this rough draft to act as a rough outline of the ideas that i had/have now that we are first discussing telarum so we can build off of them in the future. this will make thinking easier as at least some of the idea is written down already and can be reffered back to as to not forget some information.
+i made this rough draft to act as a rough outline of the ideas that i had/have now that we are first discussing telarum so we can build off of them in the future. this will make thinking easier as at least some of the idea is written down already and can be referred back to as to not forget some information.
 
 - why is this so informal and full of (maybes)?
 
@@ -20,11 +20,11 @@ ipv4 is only used here as an example, we could use ipv6, or replace those comple
 
 `telarum://` is a protocol with two parts: you can send a request to a server with headers, and you can receive a response with headers and a file. the response is sent in several chunks, the first chunk contains the headers, an index header, and a part of the file - the rest of the chunks only contains indexes and parts of the file.
 
-`telaring://` could be a protocol for interacting with telarum webrings/name servers, ie. to ask for the webring's name, to ask to resolve a domain, 
+`telaring://` could be a protocol for interacting with telarum webrings/name servers, ie. to ask for the webring's name, to ask to resolve a domain,
 
 - what is a telarum url?
 
-a telarum url is made up of 5 parts, the protocol, the id, the name/webring, a port, and some data. the the part that's just the id and the name is refered to as the domain
+a telarum url is made up of 5 parts, the protocol, the id, the name/webring, a port, and some data. the the part that's just the id and the name is referred to as the domain
 
 > eg. protocol://id.name:port/data/
 
@@ -52,6 +52,6 @@ a telarum url is made up of 5 parts, the protocol, the id, the name/webring, a p
 5. b. you would discover other webrings via. word of mouth or some sort of central instance of one (think of mastodon and the other activitypub federated social networks, or matrix (which plans to disable open registration when it is mature enough and other instances are available))
 
 ### the client
-6. you also run a telarum client on another computer (whatever device you have access to, the telarum client could be from within browser, or a daemon that manage's the whole device's internet connectivity then browsers contact the daemon to access the internet or however it currently works currently idk lmao) which has a list of dns servers that it uses, of which one is [1.2.3.4 or 192.168.0.42], and on the client boot the name of that item is requested.
+6. you also run a telarum client on another computer (whatever device you have access to, the telarum client could be from within browser, or a daemon that manages the whole device's internet connectivity then browsers contact the daemon to access the internet or however it currently works currently idk lmao) which has a list of dns servers that it uses, of which one is [1.2.3.4 or 192.168.0.42], and on the client boot the name of that item is requested.
 
 7. when "stiffcocks.pizza" is typed into the url bar. the client then asks pizza (1.2.3.4 or 192.168.0.42) if it has an entry for stiffcocks, it does and it redirects to [localhost or 192.168.0.69], so we send a request to that ip with our /data/ and headers. it returns a file and it is the browser's job to render the response - whether as a website or a dialog to save a file (picture, binary, video, audio).
