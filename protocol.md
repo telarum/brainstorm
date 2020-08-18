@@ -5,14 +5,28 @@ authors: zvava + Thomas
 # the telarum:// protocol
 > every one of these headers are subject to change, once they are all very definitively standardized, ability to use the compressed bytes will be enabled
 
+the `telarum` protocol is the main protocol used by telarum clients, both for data transfer and resolving urls. telarum is secure by default and utilizes end to end encryption.
+
+- why replace `http`?
+
+`http` is bloated and insecure, and there are too many headers that convey information only important to the "modern" web. telarum aims to provide a slimmer ~~and superior~~ alternative. it is also secure by default - there is no need for a separate protocol that provides encryption over telarum. cookies are also completely removed, and authentication is simplified.
+
+- how is it more secure *and* slimmer?
+
+see the protocol security section; once the keys are exchanged, there is no need to again unless your client forgets the server's key or vice versa. also see the example request/response sections; there aren't only less headers, but they are standardized, allowing for compression down to mere bytes.
+
 ## terminology
 
 **header**, the same principal as http headers
 
 **e2e**, short for end to end encryption/encrypted
 
-## security/authentication
-> e2e is optional *only* for webrings, webrings can also choose if they can be unencrypted or strictly e2e
+## protocol security
+> e2e is optional *only* for webrings, they can choose if they can be used unencrypted or strictly e2e, there should be *no option* to disable e2e *anywhere **ever***.
+
+end to end encryption [in telarum] works by an exchange of keys. both the client and server have a pair of keys; one private and one public, the public key can encrypt but only the private can decrypt. if the client has the server's public key and vice versa, only the client can decrypt the information given to it by the server and vice versa.
+
+> the client could generate a different key pair for every website, but that might only be for people with some kind of paranoia
 
 1. you request a public key from the server
 ```toml
@@ -33,6 +47,8 @@ public_key = "{data}"
 3. you send your public key to the server (encrypted with the server's public key) in the same format as the server sent you theirs
 
 4. now all following requests to/from the server are encrypted
+
+> if the server forgets the client's public key, changes its private key, or receives a request from the client that it cannot decrypt; it sends a response to the client which indicates an authentication error, which should prompt the client to forget the server's old key and retry authentication
 
 ## example telarum request
 ```toml
