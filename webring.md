@@ -82,8 +82,11 @@ Someone who uses the webring types `beakerbrowser.pizza` into their url bar or c
 
 *this shouldn't happen, as clients could give users the option to assign aliases to webrings that happen to have the same name as others (see next section)
 
-## example webring configuration
-- client webring
+## webring configurations
+
+webrings are configured with `toml`. there are two types of webrings; local and external. the client has its own webring that is not publicly available to other users, these are called local webrings and are mainly used to store your favorite webrings and sometimes websites. webrings which are publicly hosted are called external, and are available for use by clients to store many websites, all with a specific topic/theme or just a soup.
+
+- example local webring configuration
 ```toml
 # the default name for client webrings is local
 # it can be changed to 'com' or something
@@ -103,7 +106,7 @@ stiffcocks = "2.3.4.5"
 space = "3.4.5.6"
 ```
 
-- hosted webring
+- example external webring configuration
 ```toml
 # the name for the hosted webring
 # will be used as the name in a url by clients
@@ -117,12 +120,12 @@ info = [
 
 # "dns records"
 [nodes]
-fuckyouall = 1.2.3.4
-stiffcocks = 2.3.4.5
+fuckyouall = "1.2.3.4"
+stiffcocks = "2.3.4.5"
 
 # ips of other hosted webrings
 [peers]
-space = 3.4.5.6
+space = "3.4.5.6"
 ```
 
 ## api
