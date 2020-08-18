@@ -2,36 +2,16 @@
 authors: zvava + Thomas
 ---
 
-# protocol(s)
-## example webring configuration
-an example webring.toml file
-
-```toml
-name = "pizza"
-info = [
-	"this webring is hosted by x",
-	"personal homepage/blog: fuckyouall.pizza."
-	"it is mainly a collection of video hosting websites",
-]
-
-[nodes]
-fuckyouall = 1.2.3.4
-stiffcocks = 2.3.4.5
-
-[peers]
-space = 3.4.5.6
-```
-
-## telarum:// protocol
+# the telarum:// protocol
 > every one of these headers are subject to change, once they are all very definitively standardized, ability to use the compressed bytes will be enabled
 
-### terminology
+## terminology
 
 **header**, the same principal as http headers
 
 **e2e**, short for end to end encryption/encrypted
 
-### security/authentication
+## security/authentication
 > e2e is optional *only* for webrings, webrings can also choose if they can be unencrypted or strictly e2e
 
 1. you request a public key from the server
@@ -54,7 +34,7 @@ public_key = "{data}"
 
 4. now all following requests to/from the server are encrypted
 
-### example telarum request
+## example telarum request
 ```toml
 data = "main"
 # type of file you are expecting to receive
@@ -76,7 +56,7 @@ username = "thomas"
 password = "whatever
 ```
 
-### example telarum response
+## example telarum response
 > date could be optional
 
 - raw toml
