@@ -1,8 +1,6 @@
-# Project name
-
-zvav: what if we find a really obscure but cool sounding name or latin word
-
-for now: `telarum` it is
+---
+author: Thomas + zvava
+---
 
 # Goals
 
