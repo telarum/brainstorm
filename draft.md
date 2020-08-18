@@ -2,6 +2,8 @@
 author: zvava
 ---
 
+> this document is/will be largely/completely outdated soon
+
 # draft
 
 - what is this draft for?
@@ -12,25 +14,15 @@ i made this rough draft to act as a rough outline of the ideas that i had/have n
 
 this is a draft. i just want my ideas out of my brain and in a document. the (maybes) will be expanded and fleshed out later once we understand/think more.
 
-- why you talk about using ipv4? isn't it obsolete?
-
-ipv4 is only used here as an example, we could use ipv6, or replace those completely with our own "ipv5" which is just ipv4 but instead of each part being limited up to 255, they can go up 999. (or something)
-
 - what is/are the telarum protocol(s)?
 
 `telarum://` is a protocol with two parts: you can send a request to a server with headers, and you can receive a response with headers and a file. the response is sent in several chunks, the first chunk contains the headers, an index header, and a part of the file - the rest of the chunks only contains indexes and parts of the file.
-
-`telaring://` could be a protocol for interacting with telarum webrings/name servers, ie. to ask for the webring's name, to ask to resolve a domain,
 
 - what is a telarum url?
 
 a telarum url is made up of 5 parts, the protocol, the id, the name/webring, a port, and some data. the the part that's just the id and the name is referred to as the domain
 
 > eg. protocol://id.name:port/data/
-
-> eg. telarum://stiffcocks.pizza:70/big/girthy/dicks
->
-> where telarum:// = protocol (potentially obsolete, we are making a new standard after all), stiffcocks = id, pizza = name, :70 = port, /big/girthy/dicks/ = essentially the same as whatever http has, except there are no get headers (login.html/?user=asdf) but instead you only have the headers in the protocol ie. no GET, only POST, but better because there is only one type of request
 
 ## example
 1. you run a telarum server on a computer (eg. a raspi) which is connected to a router, the router authenticates the server and it receives an ip, now with 192.168.0.69:70 (70 can be the default port ig) on the local network you can access the site hosted on the telarum server.
@@ -40,7 +32,7 @@ a telarum url is made up of 5 parts, the protocol, the id, the name/webring, a p
 ### in the case of an external network
 3. a. "localhost" (which automatically evaluates to the webring's external ip by clients).
 
-4. a. now you are able to port forward the webring and the server on the router, and now the router's external ip which has been decided to be 1.2.3.4 (*somehow* uniquely) can be used as a webring and also gives the website hosted on 1.2.3.4 a domain, improving the ux of that website (need idea on how to host multiple websites on one network and have multiple exposed).
+4. a. now you are able to port forward the webring and the server on the router, and now the router's external ip which has been decided to be 1.2.3.4 can be used as a webring and also gives the website hosted on 1.2.3.4 a domain, improving the ux of that website (need idea on how to host multiple websites on one network and have multiple exposed).
 
 5. a. you could also specify a listing option in dns.yaml/ini/etc, which would (*somehow*) cause it to find other networks, and join a webring channel, the default webring chanel could just be "public" (which is given as the value of the listing option). as a member of that webring, you can discover other webrings by querying your webring.
 
