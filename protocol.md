@@ -58,7 +58,7 @@ content = "text/page"
 # type of compression/encoding you can accept
 # the type "none" is default and implied
 # if the website can fulfill one of these, it will
-encoding = ["gzip","deflate","br", etc.]
+encoding = ["gzip", "deflate", "br", etc.]
 
 [personalize]
 # if the website has multiple language support
@@ -68,23 +68,26 @@ language = "english"
 client = "browserName"
 os = ""
 # supply a username/password to authenticate a request, the telarum request is encrypted already so these can be plain here
-username = "thomas"
-password = "whatever
+authorization = "username:password"
+# tell the link what page you came from
+# should have a client option to turn it off, which is on by default, but this could produce some wanted behavior in some instances
+referrer = "telarum://stiffcocks.pizza/page"
 ```
 
 ## example telarum response
-> date could be optional
-
 - raw toml
 ```toml
 # status, different from http statuses
 status = "OK"
 # a mime type
 type = "text/page"
-# current date yyyy/mm/dd/hh/mm/ss
-date = "2020 08 18 14 56 03"
 # type of compression/encoding
 encoding = "none" | "gzip" | etc.
+# if the website has multiple language support
+language = "english"
+# equivalent to the client and os headers in requests by clients
+server = "serverName"
+os = ""
 
 # then the actual data is sent via tcp or udp packets
 ```
@@ -92,17 +95,16 @@ encoding = "none" | "gzip" | etc.
 - compressed bytes
 ```toml
 # each header is started by one byte
-# followed by it's arguments in bytes
-# and them closed with an 0xff byte
+# followed by its arguments in bytes
+# and then closed after the amount of arguments required by the header is reached
 
 # status, where 01 is OK, 00 would be ERROR, etc.
-00 01 ff
+00 01
 # mime type, where 01 is text/page, 00 would be unknown, etc.. there would only be 255 mime types available like this though.
-01 01 ff
-# date, where there are four bytes dedicated for year, then the remaining cannot exceed 255 so the remaining each can and only take one
-02 Y0 Y1 Y2 Y3 MM dd hh mm ss ff
+01 01
 # encoding, where 00 is none, and there are 255 available to encode the data in
-03 00 ff
+02 00
+# etc
 
 # then the actual data is sent via tcp or udp packets
 ```
