@@ -1,0 +1,47 @@
+webring api
+example DNS request to get the ip for node id "stiffcocks":
+	ff 73 74 69 66 66 63 6f 63 6b 73
+	\DEL S T I F F C O C K S
+
+examples (X = client, Y = webring, Z = a node)1. X sends the following request to Y:
+	0xff "DNSMETA"
+2. Y sends the following response to X:
+	0xff 0x01 # status  = "ok", following is raw text
+	name = "pizza"
+	owner = "x"
+	info = [
+		"this webring is hosted by x",
+		"personal homepage/blog: fuckyouall.pizza"
+		"this webring exists mainly to provide a collection of video hosting websites",
+	]
+
+1. X sends the following request to Y:
+	0xff "DNSNODE"
+2. Y sends the following response to X:
+	0xff 0x01 # status = "ok", following is text
+	fuckyouall="1.2.3.4"
+	stiffcocks="2.3.4.5"
+1. X sends the following request to Y:
+	0xff "DNSPEER"
+2. Y sends the following response to X:
+	0xff 0x01 # status = "ok", following is text
+	space="3.4.5.6" # aliases are applied
+
+1. X sends the following request to Z:
+	0xff "DNSxxxx"
+2. Z sends the following response to X:
+	0xff 0x02 # status = "this is not a webring
+
+Types of telarum requests, sorted by type of instance:
+	- resolve node id
+		[anything] (except for DNS, lowercase dns is fine)
+	DNSNAME (returns 0xff + name in ascii)
+		- get name
+	DNSMETA (see example)
+		- get metadata
+	DNSCONF (returns 0xff + hash in ascii)
+	- get config hash
+	DNSNODE (see example)
+		- get nodes
+	DNSPEER (see example)
+		- get peers
