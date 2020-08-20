@@ -117,13 +117,17 @@ info = [
 	"personal homepage/blog: fuckyouall.pizza"
 	"this webring exists mainly to provide a collection of video hosting websites",
 ]
+# ips of other hosted webrings
+peers = [
+	"3.4.5.6",
+]
 
 # "dns records"
 [nodes]
 fuckyouall = "1.2.3.4"
 stiffcocks = "2.3.4.5"
 
-# ips of other hosted webrings
+# aliases for conflicting webrings
 [peers]
 space = "3.4.5.6"
 ```
