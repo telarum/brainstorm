@@ -67,7 +67,7 @@ language = "english"
 # you can specify these if a website provides a different download link for different operating systems, or something
 client = "browserName"
 os = ""
-# supply a username/password to authenticate a request, the telarum request is encrypted already so these can be plain here
+# supply a username/password to authenticate a request, the telarum request is encrypted already so these can be plaintext
 authorization = "username:password"
 # tell the link what page you came from
 # should have a client option to turn it off, which is on by default, but this could produce some wanted behavior in some instances
